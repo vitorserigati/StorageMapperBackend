@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+      <EmbeddedResource Include="Persistence\DbUp\Migrations\*.sql" />
+    </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StorageMapper.Domain\StorageMapper.Domain.csproj" />
+    <ProjectReference Include="..\StorageMapper.Application\StorageMapper.Application.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" />
+    <PackageReference Include="dbup-postgresql" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Npgsql" />
+    <PackageReference Include="LanguageExt.Core" />
+  </ItemGroup>
+
+</Project>
