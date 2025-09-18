@@ -2,6 +2,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StorageMapper.Infrastructure.Helpers;
 using StorageMapper.Application.Interfaces;
+using StorageMapper.Infrastructure.Security;
 using StorageMapper.Infrastructure.Providers;
 using StorageMapper.Infrastructure.Persistence.DbUp;
 
@@ -14,6 +15,7 @@ public static class DependencyInjection
         HelperMethods.TryGetConnectionString("Default", config, out string connectionString);
         DbMigrator.Migrate(connectionString);
         services.AddSingleton<ITokenProvider, TokenProvider>();
+        services.AddSingleton<IPasswordHasher, PasswordHasher>();
         return services;
     }
 }
